@@ -13,7 +13,7 @@ import UIKit
 class SwipeInteractor: UIPercentDrivenInteractiveTransition {
     
     // MARK: - Private
-    private var viewController: UIViewController!
+    private weak var viewController: UIViewController!
     private var rightToLeftSwipe = false
     private var shouldCompleteTransition = false
     private var canceled = false
