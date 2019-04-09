@@ -120,7 +120,11 @@ extension SwipeableTabBarController: UITabBarControllerDelegate {
                 return nil
         }
 
-        currentAnimatedTransitioningType.fromLeft = (fromVCIndex > toVCIndex) && (UIApplication.shared.userInterfaceLayoutDirection == .leftToRight)
+        if (UIApplication.shared.userInterfaceLayoutDirection == .leftToRight) {
+            currentAnimatedTransitioningType.fromLeft = (fromVCIndex > toVCIndex)
+        }else {
+            currentAnimatedTransitioningType.fromLeft = (fromVCIndex < toVCIndex)
+        }
         
         //([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft)
         return currentAnimatedTransitioningType
